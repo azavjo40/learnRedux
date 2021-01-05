@@ -1,0 +1,29 @@
+{
+  "name": "learnredux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azavjo40/learnRedux.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azavjo40/learnRedux/issues"
+  },
+  "homepage": "https://github.com/azavjo40/learnRedux#readme",
+  "dependencies": {
+    "nodemon": "^2.0.6",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5"
+  }
+}
