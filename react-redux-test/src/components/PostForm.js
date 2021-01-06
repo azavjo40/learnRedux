@@ -1,8 +1,9 @@
 import {useState} from 'react'
 import {connect} from 'react-redux'
-import { createPost } from '../redux/actions'
+import { createPost, showAlert } from '../redux/actions'
+import { Alert } from './Alert'
 
-const PostForm = ({createPost})=>{
+const PostForm = (props)=>{
 const [form, setForm] = useState({title:''})
 const chanchInputHandler = (e)=>{
 setForm({...form, [e.target.name]: e.target.value})
@@ -11,14 +12,15 @@ const submitHandler = (e)=>{
 e.preventDefault()
 const title = form.title
 if(!title.trim()){
-    return
+return props.showAlert('Названия поста не можеть быть пустим')
 }
 const newPost = {title, id:Date.now().toString()}
-createPost(newPost)
+props.createPost(newPost)
 setForm({title: ''})
 }
 return(
 <form onSubmit={(e)=>submitHandler(e)}>
+    {props.alert && <Alert text={props.alert} />}
     <div className="mb-3">
         <label htmlFor="title">Заголовок поста</label>
         <input type="text" className="form-control" id="title" value={form.title} onChange={(e)=>chanchInputHandler(e)}
@@ -30,8 +32,12 @@ return(
 )
 }
 
- const mapDispatreturn = {
-   createPost
-    // второй параметр для передача props payload
+const mapDispatreturn = {
+createPost, showAlert
+// второй параметр для передача props payload
 }
-export default connect(null,mapDispatreturn )(PostForm)
+
+const mapStateToProps = state => ({
+alert: state.app.alert
+})
+export default connect(mapStateToProps,mapDispatreturn )(PostForm)

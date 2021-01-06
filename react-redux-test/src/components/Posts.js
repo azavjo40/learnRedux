@@ -7,17 +7,16 @@ if(!syncPosts.length){
 return<p className="text-center"> Постов пока нет</p>
 }
 return(
-     syncPosts.map((post)=>
+syncPosts.map((post)=>
 <Post post={post} key={post.id} />)
 )
 }
 
 // что бы все state сделаеть props
 const mapStateProps = state =>{
-    console.log(state)
 return {
-    // тут присвайиваем от state
-    syncPosts: state.posts.posts
+// тут присвайиваем от state
+syncPosts: state.posts.posts
 }
 }
 // соединения react с redux первий параметр это propsState

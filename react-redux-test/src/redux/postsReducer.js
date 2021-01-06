@@ -1,7 +1,5 @@
 // логика фн reducer
-
-import { CREATE_POST } from "./types"
-
+import { CREATE_POST, FETCHED_POSTS } from "./types"
 const initialState = {
 posts: [],
 fetchedPosts: []
@@ -11,6 +9,8 @@ switch(action.type){
 case CREATE_POST:
 return {...state, posts: state.posts.concat([action.payload])}
 //return {...state, posts: [...state.posts, action.payload]}
+case FETCHED_POSTS: 
+return {...state, fetchedPosts: action.payload}
 default: return state
 }
 

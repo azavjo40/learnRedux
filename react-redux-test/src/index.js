@@ -1,21 +1,26 @@
 import React from 'react'
 import {render} from 'react-dom'
-import { compose, createStore } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 import App from './App'
 import { roodReducer } from './redux/roodReducer'
 import reportWebVitals from './reportWebVitals'
 import {Provider} from 'react-redux'
+import thunk from 'redux-thunk'
 // storage
 const store = createStore(roodReducer, compose(
-  // обединения стор и Redux DevTools
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+applyMiddleware(
+// добавить свой мидолверий thunk для асинхроний
+thunk
+),
+// обединения стор и Redux DevTools
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
 
 const app = (
-  // соединения storage
-  <Provider store={store}>
-    <App/>
-  </Provider>
+// соединения storage
+<Provider store={store}>
+    <App />
+</Provider>
 )
 
 render(app,document.getElementById('root'))

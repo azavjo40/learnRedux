@@ -18,7 +18,7 @@ return (
     </div>
     <div className="col">
       <h2>Асинхроные посты</h2>
-      <FetchedPosts posts={[]} />
+      <FetchedPosts />
     </div>
   </div>
 </div>
