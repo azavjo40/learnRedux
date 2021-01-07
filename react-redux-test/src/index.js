@@ -6,11 +6,12 @@ import { roodReducer } from './redux/roodReducer'
 import reportWebVitals from './reportWebVitals'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
+import { spamWords } from './redux/middleware'
 // storage
 const store = createStore(roodReducer, compose(
 applyMiddleware(
-// добавить свой мидолверий thunk для асинхроний
-thunk
+// добавить свой мидолверий thunk для асинхроний и свой Middleware spamWords
+thunk, spamWords
 ),
 // обединения стор и Redux DevTools
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
