@@ -10,6 +10,7 @@ setForm({...form, [e.target.name]: e.target.value})
 }
 const submitHandler = (e)=>{
 e.preventDefault()
+// trim это пробел 
 const title = form.title
 if(!title.trim()){
 return props.showAlert('Названия поста не можеть быть пустим')
