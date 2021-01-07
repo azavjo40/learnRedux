@@ -5,7 +5,7 @@ import { Loader } from './Loader'
 import Post from './Post'
 
 const FetchedPosts = ()=>{
-//метат как connect соединения
+//метат как connect соединения a
 const dispach = useDispatch()
 // чтобы получать как connect что то
 const posts = useSelector(state=>state.posts.fetchedPosts)
