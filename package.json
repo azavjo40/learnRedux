@@ -22,8 +22,6 @@
   },
   "homepage": "https://github.com/azavjo40/learnRedux#readme",
   "dependencies": {
-    "nodemon": "^2.0.6",
-    "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+    "nodemon": "^2.0.6"
   }
 }
